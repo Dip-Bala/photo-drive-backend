@@ -6,7 +6,7 @@ import { UserModel } from '../models/schema';
 
 dotenv.config();
 
-const { JWT_SECRET, REFRESH_SECRET} = process.env;
+const { ACCESS_SECRET, REFRESH_SECRET} = process.env;
 
 const authRouter = Router();
 
@@ -16,7 +16,7 @@ async function getUser(email: string){
 }
 
 function signAccessToken(payload: any){
-  return jwt.sign(payload, JWT_SECRET as string, { expiresIn: '10m' });
+  return jwt.sign(payload, ACCESS_SECRET as string, { expiresIn: '10m' });
 }
 
 function signRefreshToken(payload: any){
@@ -24,14 +24,20 @@ function signRefreshToken(payload: any){
 }
 
 authRouter.post('/signup', async (req, res) => {
+  console.log('signup')
   const { email, password } = req.body;
   const user = await getUser(email);
   if (user) {
     return res.status(403).send('Email is already signed up.');
   }
   const hashedPassword = await bcrypt.hash(password, 8);
-  await UserModel.create({ email, password: hashedPassword });
-  res.status(200).send('User signed up successful');
+  try{
+    await UserModel.create({ email, password: hashedPassword });
+    res.status(200).send('User signed up successful');
+  }
+  catch(e){
+    console.log("signup error :" + e)
+  }
 });
 
 authRouter.post('/login', async (req, res) => {
@@ -49,8 +55,8 @@ authRouter.post('/login', async (req, res) => {
   const accessToken = signAccessToken(payload);
   const refreshToken = signRefreshToken(payload);
 
+  try{
   await UserModel.findByIdAndUpdate(user._id, { refreshToken });
-
   res.cookie('access_token', accessToken, {
     httpOnly: true,
     sameSite: 'none',
@@ -65,6 +71,10 @@ authRouter.post('/login', async (req, res) => {
   });
 
   res.status(200).send('Login successful');
+}
+catch(e){
+  console.log("login error " + e)
+}
 });
 
 authRouter.post('/refresh', async (req, res) => {

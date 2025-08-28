@@ -21,7 +21,7 @@ const folderSchema = new Schema({
         required: true
     },
     parent: {
-        type: Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId || null,
         ref: 'Folder'
     },
     owner: {
@@ -33,9 +33,10 @@ const folderSchema = new Schema({
 const imageSchema = new Schema(
     {
     name: { type: String, required: true }, 
-    url: { type: String, required: true }, // path/Cloudinary/S3 URL
-    folder: { type: Schema.Types.ObjectId, ref: "Folder" }, 
+    url: { type: String, required: true }, // Cloudinary/ URL
+    folder: { type: Schema.Types.ObjectId || null, ref: "Folder" }, 
     owner: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    public_id: {type: String}
   },
   { timestamps: true }
 )

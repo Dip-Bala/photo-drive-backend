@@ -36,7 +36,6 @@ imageRouter.post("/upload", async (req: AuthRequest, res: Response) => {
 imageRouter.get("/", async (req: AuthRequest, res: Response) => {
 try {
     const { folder, q } = req.query;
-    // Base query: only images owned by this user
     const query: any = { owner: req.user!.id };
     if (folder) query.folder = folder;
     if (q) query.name = { $regex: q as string, $options: "i" };

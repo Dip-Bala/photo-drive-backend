@@ -43,7 +43,7 @@ folderRouter.get("/", async (req: AuthRequest, res: Response) => {
   }
 });
 
-// Get folder metadata (optionally include children)
+
 folderRouter.get("/:id", async (req: AuthRequest, res: Response) => {
   try {
     const folder = await FolderModel.findOne({ _id: req.params.id, owner: req.user!.id });
@@ -74,7 +74,7 @@ folderRouter.patch("/:id", async (req: AuthRequest, res: Response) => {
   }
 });
 
-// Delete folder (no cascade here, handle carefully in production)
+// Delete folder 
 folderRouter.delete("/:id", async (req: AuthRequest, res: Response) => {
   try {
     const folder = await FolderModel.findOneAndDelete({ _id: req.params.id, owner: req.user!.id });

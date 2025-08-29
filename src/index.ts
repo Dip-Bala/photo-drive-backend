@@ -9,21 +9,21 @@ import imageRouter from './routes/image';
 dotenv.config();
 
 const app = express();
-const {MONGODB_URL, JWT_SECRET, PORT} = process.env;
+const {MONGODB_URL, JWT_SECRET, PORT, FRONTEND_URL} = process.env;
 
 if(!MONGODB_URL || !JWT_SECRET || !PORT){
     console.log('Error loading .env variables');
 }
 app.use(cors({
-  origin: "http://localhost:5173", 
+  origin: FRONTEND_URL, 
   credentials: true,               
 }));
 
 app.use(cookieParser());
 app.use(express.json())
 app.use('/api/auth', authRouter);
-app.use('/api/image', imageRouter);
-app.use('/api/folder', folderRouter);
+app.use('/api/images', imageRouter);
+app.use('/api/folders', folderRouter);
 
 async function main(){
     try{
@@ -32,7 +32,6 @@ async function main(){
         await app.listen(PORT || 3000, () => {
             console.log(`App is listening on port ${PORT}`)
         });
-
 
     }
     catch(e){

@@ -59,13 +59,13 @@ authRouter.post('/login', async (req, res) => {
   await UserModel.findByIdAndUpdate(user._id, { refreshToken });
   res.cookie('access_token', accessToken, {
     httpOnly: true,
-    sameSite: 'none',
+    sameSite: 'strict',
     secure: true,
     maxAge: 10 * 60 * 1000
   });
   res.cookie('refresh_token', refreshToken, {
     httpOnly: true,
-    sameSite: 'none',
+    sameSite: 'strict',
     secure: true,
     maxAge: 7 * 24 * 60 * 60 * 1000
   });
@@ -96,13 +96,13 @@ authRouter.post('/refresh', async (req, res) => {
 
     res.cookie('access_token', newAccess, {
       httpOnly: true,
-      sameSite: 'none',
+      sameSite: 'strict',
       secure: true,
       maxAge: 10 * 60 * 1000
     });
     res.cookie('refresh_token', newRefresh, {
       httpOnly: true,
-      sameSite: 'none',
+      sameSite: 'strict',
       secure: true,
       maxAge: 7 * 24 * 60 * 60 * 1000
     });

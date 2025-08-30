@@ -13,13 +13,13 @@ Deployed at: [Photo Drive Backend](https://photo-drive-backend.onrender.com)
 ## 🛠️ Tech Stack
 
 
-- ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white) **Node.js**  
-- ![Express.js](https://img.shields.io/badge/Express.js-000000?logo=express&logoColor=white) **Express.js**  
-- ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white) **MongoDB (Mongoose)**  
-- ![JWT](https://img.shields.io/badge/JWT-000000?logo=jsonwebtokens&logoColor=white) **JWT (Access & Refresh tokens)**  
-- ![bcrypt](https://img.shields.io/badge/bcrypt-003366?logo=security&logoColor=white) **bcrypt (Password Hashing)**  
-- ![Cookies](https://img.shields.io/badge/Cookies-FFD43B?logo=cookiecutter&logoColor=black) **Cookies (HttpOnly, Secure)**  
-- ![dotenv](https://img.shields.io/badge/dotenv-ECD53F?logo=dotenv&logoColor=black) **dotenv (Environment Variables)**  
+- ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white) 
+- ![Express.js](https://img.shields.io/badge/Express.js-000000?logo=express&logoColor=white)
+- ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white) 
+- ![JWT](https://img.shields.io/badge/JWT-000000?logo=jsonwebtokens&logoColor=white) 
+- ![bcrypt](https://img.shields.io/badge/bcrypt-003366?logo=security&logoColor=white) 
+- ![Cookies](https://img.shields.io/badge/Cookies-FFD43B?logo=cookiecutter&logoColor=black) 
+- ![dotenv](https://img.shields.io/badge/dotenv-ECD53F?logo=dotenv&logoColor=black) 
  
 
 ---
@@ -37,13 +37,23 @@ Deployed at: [Photo Drive Backend](https://photo-drive-backend.onrender.com)
 ## 📂 Project Structure
 
 ````
-
-src/
-├── routes/        # Auth, Folder, Image routes
-├── middleware/    # Auth middleware
-├── models/        # MongoDB schemas
-└── index.ts       # App entrypoint
-
+.
+├── LICENSE
+├── package-lock.json
+├── package.json
+├── README.md
+├── src
+│   ├── index.ts
+│   ├── middleware              
+│   │   └── authMiddleware.ts  # Auth middleware
+│   ├── models
+│   │   └── schema.ts
+│   └── routes          
+│       ├── auth.ts         # Auth routes
+│       ├── folder.ts       # Folder routes
+│       └── image.ts        # Image routes
+├── tsconfig.json
+└── tsconfig.tsbuildinfo
 ````
 
 ---

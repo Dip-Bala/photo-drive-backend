@@ -1,7 +1,6 @@
 
 # 📌 Backend `README.md`
 
-```markdown
 # 📸 Photo Drive – Backend (API)
 
 A secure **Node.js + Express + MongoDB** backend for the Photo Drive application.  
@@ -121,6 +120,4 @@ npm start
 ## 📝 License
 
 MIT © \[Dipanwit Bala]
-
-```
 

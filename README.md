@@ -12,13 +12,15 @@ Deployed at: [Photo Drive Backend](https://photo-drive-backend.onrender.com)
 
 ## 🛠️ Tech Stack
 
-- 🟢 **Node.js**  
-- 🚂 **Express.js**  
-- 🍃 **MongoDB (Mongoose)**  
-- 🔑 **JWT (Access & Refresh tokens)**  
-- 🧂 **bcrypt (password hashing)**  
-- 🍪 **Cookies (HttpOnly, Secure)**  
-- 🔐 **dotenv (env variables)**  
+
+- ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white) **Node.js**  
+- ![Express.js](https://img.shields.io/badge/Express.js-000000?logo=express&logoColor=white) **Express.js**  
+- ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white) **MongoDB (Mongoose)**  
+- ![JWT](https://img.shields.io/badge/JWT-000000?logo=jsonwebtokens&logoColor=white) **JWT (Access & Refresh tokens)**  
+- ![bcrypt](https://img.shields.io/badge/bcrypt-003366?logo=security&logoColor=white) **bcrypt (Password Hashing)**  
+- ![Cookies](https://img.shields.io/badge/Cookies-FFD43B?logo=cookiecutter&logoColor=black) **Cookies (HttpOnly, Secure)**  
+- ![dotenv](https://img.shields.io/badge/dotenv-ECD53F?logo=dotenv&logoColor=black) **dotenv (Environment Variables)**  
+ 
 
 ---
 
